@@ -1,3 +1,6 @@
+
+//get drive info
+
 using System;
 using System.IO;
 
@@ -27,3 +30,15 @@ using System.IO;
             }
         }
     }
+
+//hidden folder
+
+
+string path = @"c:\folders\newfolder";
+if (!Directory.Exists(path)) 
+{ 
+DirectoryInfo di = Directory.CreateDirectory(path); 
+di.Attributes = FileAttributes.Directory | FileAttributes.Hidden; 
+}
+
+
