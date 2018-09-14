@@ -52,7 +52,7 @@ using System.IO;
                 {
                     g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
                 }
-                bitmap.Save("C:\\Users\\....................", ImageFormat.Jpeg);
+                bitmap.Save("C:\\Users\\....................\\test.jpg", ImageFormat.Jpeg);
             }
 
 
