@@ -35,6 +35,15 @@ using System.IO;
 
 //capture screenshot -WORKS
 
+    class CaptureScreen
+    {
+      public
+
+        void CaptureScreenMetod(string FolderDestiny)         //przechwycenie zrzutu ekranu
+        {
+
+            Console.WriteLine(FolderDestiny);
+
             Rectangle bounds = Screen.GetBounds(Point.Empty);
             using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
             {
@@ -42,19 +51,22 @@ using System.IO;
                 {
                     g.CopyFromScreen(Point.Empty, Point.Empty, bounds.Size);
                 }
-                bitmap.Save("test.jpg", ImageFormat.Jpeg);
+                bitmap.Save("ScreenCapture.jpg", ImageFormat.Jpeg);     //nazwa pliku JPEG
             }
 
-          //  Rectangle bounds = this.Bounds;
+            //  Rectangle bounds = this.Bounds;
             using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
             {
                 using (Graphics g = Graphics.FromImage(bitmap))
                 {
                     g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
                 }
-                bitmap.Save("C:\\Users\\....................\\test.jpg", ImageFormat.Jpeg);
+                bitmap.Save((FolderDestiny)+ "ScreenCapture.jpg", ImageFormat.Jpeg); // jpg jest ciagle nadpisywany
             }
 
+        }
+
+    }
 
 --------------------------------------------------------------------------------
 
