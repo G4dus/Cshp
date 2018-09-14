@@ -33,7 +33,7 @@ using System.IO;
 
 --------------------------------------------------------------------------------
 
-//capture screenshot
+//capture screenshot -WORKS
 
             Rectangle bounds = Screen.GetBounds(Point.Empty);
             using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
@@ -70,4 +70,10 @@ di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
 
 --------------------------------------------------------------------------------
  
+ //hidden file
+ 
+ File.SetAttributes(path, File.GetAttributes(path) | FileAttributes.Hidden);
+
+--------------------------------------------------------------------------------
+
  //
