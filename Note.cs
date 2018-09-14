@@ -35,13 +35,26 @@ using System.IO;
 
 //capture screenshot
 
-ScreenCapture sc = new ScreenCapture();
-// capture entire screen, and save it to a file
-Image img = sc.CaptureScreen();
-// display image in a Picture control named imageDisplay
-this.imageDisplay.Image = img;
-// capture this window, and save it
-sc.CaptureWindowToFile(this.Handle,"C:\\temp2.gif",ImageFormat.Gif);
+            Rectangle bounds = Screen.GetBounds(Point.Empty);
+            using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
+            {
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(Point.Empty, Point.Empty, bounds.Size);
+                }
+                bitmap.Save("test.jpg", ImageFormat.Jpeg);
+            }
+
+          //  Rectangle bounds = this.Bounds;
+            using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
+            {
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
+                }
+                bitmap.Save("C:\\Users\\....................", ImageFormat.Jpeg);
+            }
+
 
 --------------------------------------------------------------------------------
 
